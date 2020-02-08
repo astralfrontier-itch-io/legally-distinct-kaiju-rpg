@@ -10,6 +10,11 @@
 \setlength{\TPVertModule}{10mm}
 \usepackage{rotating}
 
+% render lists in more compact form
+\usepackage{enumitem}
+\setlist[enumerate]{noitemsep, topsep=-2pt}
+\setlist[itemize]{noitemsep, topsep=-2pt}
+
 % this allows you to use images
 \usepackage{graphicx}
 \graphicspath{ {images/} }
@@ -19,16 +24,16 @@
 \defaultfontfeatures{Mapping=tex-text}
 
 % main font, used for the full document; use the family name here. If scale = 1 it is 10pt; you may want to go to .9 or even .8
-\setmainfont[Ligatures=TeX,Scale=1]{Times New Roman}
+\setmainfont[Scale=1,Path=./fonts/,BoldFont={AlegreyaSans-Bold},ItalicFont={AlegreyaSans-Italic}]{AlegreyaSans-Regular}
 
 % each of these is a font we'll use later; you can add more and scale them using the same method
 % you may want more or less of these; at minimum, you want a title font and a section header font
 % you'll need to mess with scale on these to get them looking 'nice' for your fonts
-\newfontfamily\titlefont[Ligatures=TeX,Scale=2.5]{Courier}
-\newfontfamily\sectionfont[Ligatures=TeX,Scale=1]{Arial}
+\newfontfamily\titlefont[Scale=2.5,Path=./fonts/,BoldFont={Montserrat-Bold},ItalicFont={Montserrat-Italic}]{Montserrat-Regular}
+\newfontfamily\sectionfont[Scale=1,Path=./fonts/,BoldFont={Montserrat-Bold},ItalicFont={Montserrat-Italic}]{Montserrat-Regular}
 
 % this is for the purposes of Lettrine
-\newfontfamily\numeralfont[Ligatures=TeX,Scale=1]{Courier}
+\newfontfamily\numeralfont[Scale=1,Path=./fonts/,BoldFont={Montserrat-Bold},ItalicFont={Montserrat-Italic}]{Montserrat-Regular}
 
 % new commands; these allow us to set up references to our fonts and format them in advance
 \newcommand*\toptitle[1]{{\color{titlecolor}\titlefont{#1}}}
