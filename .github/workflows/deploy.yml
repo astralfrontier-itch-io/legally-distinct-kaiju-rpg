@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - master
+name: Deploy master branch
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@master
+      with:
+        root_file: legally-distinct-kaiju-rpg.tex
+        args: -xelatex -file-line-error -interaction=nonstopmode -halt-on-error
+    - run: mkdir dist
+    - run: cp legally-distinct-kaiju-rpg.pdf dist/
+    - uses: josephbmanley/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: rpg
+        ITCH_GAME: legally-distinct-kaiju-rpg
+        ITCH_USER: astralfrontier
+        PACKAGE: dist
