@@ -14,12 +14,7 @@ jobs:
       with:
         root_file: legally-distinct-kaiju-rpg.tex
         args: -xelatex -file-line-error -interaction=nonstopmode -halt-on-error
-    - run: mkdir dist
-    - run: cp legally-distinct-kaiju-rpg.pdf dist/
-    - uses: josephbmanley/butler-publish-itchio-action@master
-      env:
-        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-        CHANNEL: rpg
-        ITCH_GAME: legally-distinct-kaiju-rpg
-        ITCH_USER: astralfrontier
-        PACKAGE: dist
+    - uses: actions/upload-artifact@v1
+      with:
+        name: game-pdf
+        path: legally-distinct-kaiju-rpg.pdf
